@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, Button } from "react-bootstrap";
+import List from "./gitapi";
 
 const Main = () => {
   let [query, setQuery] = useState({
     owner: "",
     repo: "",
+    cmts: [],
   });
   useEffect(() => {
     axios
@@ -30,6 +32,7 @@ const Main = () => {
       )
       .then((res) => {
         console.log(res);
+        setQuery({ ...query, cmts: [...res.data] });
       });
   };
 
@@ -70,6 +73,7 @@ const Main = () => {
               </div>
             </div>
           </Card.Text>
+          <List lst={query.cmts} />
         </Card.Body>
       </Card>
     </div>

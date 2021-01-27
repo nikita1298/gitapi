@@ -1,10 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Main from "./Components/Main";
+import { Container } from "react-bootstrap";
 function App() {
   return (
     <div className="App">
-      <Main />
+      <Container>
+        <Main />
+      </Container>
     </div>
   );
 }
